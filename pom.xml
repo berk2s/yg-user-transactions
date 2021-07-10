@@ -15,7 +15,11 @@
 	<description>User Transactions Logs and Analyzing</description>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
+		</dependency>
 	</dependencies>
 
 </project>
