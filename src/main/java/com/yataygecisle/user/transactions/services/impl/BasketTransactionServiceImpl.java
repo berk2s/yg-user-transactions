@@ -20,7 +20,6 @@ import java.util.UUID;
 public class BasketTransactionServiceImpl implements BasketTransactionService {
 
     private final BasketTransactionRepository basketTransactionRepository;
-    private final TransactionRepository transactionRepository;
     private final BasketTransactionMapper basketTransactionMapper;
 
     @Override
@@ -29,10 +28,6 @@ public class BasketTransactionServiceImpl implements BasketTransactionService {
         List<BasketTransaction> basketTransactions = basketTransactionRepository
                 .findAllByUserId(userId);
 
-        System.out.println("debug area ========");
-        List<BasketTransaction> listz = basketTransactionRepository.findAll();
-        System.out.println(listz.size());
-        System.out.println("debug area ========");
         log.info("User's transactions are listed by given user id [userId: {}]", userId.toString());
 
         return basketTransactionMapper.basketTransactionToBasketTransactionDto(basketTransactions);
