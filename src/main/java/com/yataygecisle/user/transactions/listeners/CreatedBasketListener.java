@@ -1,5 +1,6 @@
 package com.yataygecisle.user.transactions.listeners;
 
+import com.yataygecisle.commons.models.CreatedBasketQueue;
 import com.yataygecisle.commons.models.Queues;
 import com.yataygecisle.user.transactions.domain.BasketItemTransaction;
 import com.yataygecisle.user.transactions.domain.BasketTransaction;
@@ -32,8 +33,9 @@ public class CreatedBasketListener {
         basketTransaction.setBasketTransactionType(BasketTransactionType.CREATED_BASKET);
 
         basket.getBasketItems().forEach(basketItem -> {
+            UUID basketItemId = UUID.fromString(basketItem.getBasketItemId());
             BasketItemTransaction basketItemTransaction = new BasketItemTransaction();
-            basketItemTransaction.setBasketItemId(UUID.fromString(basketItem));
+            basketItemTransaction.setBasketItemId(basketItemId);
 
             basketTransaction.getBasketItemTransactions().add(basketItemTransaction);
         });
